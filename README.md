@@ -100,10 +100,11 @@ In summary, your code to handle the collisions between two rigid bodies should f
 
 - Detect that the two spheres have collided (and probably penetrated each other).
 - "Correct" the collision by adjusting both the positions of both spheres so that they are no longer intersecting.
-- Compute the relative velocity of each sphere, *vrel1*= *vsphere1* – *vsphere2*.
-- Compute the collision normal for each sphere, *norm1* = *psphere1* - *psphere2*.
-- Set the new velocity of each sphere by reflecting its relative velocity about the collision normal, *vphere1 = gfx.Vector3.reflect(vrel1, norm1)*.
-- Multiply each sphere's velocity by the friction slow down constant. This produces movement that appears more plausible.
+- Compute the relative velocity of each sphere, for example: *vrel1*= *vsphere1* – *vsphere2*.
+- Compute the collision normal for each sphere, for example: *norm1* = *psphere1* - *psphere2*.
+- Set the new velocity of each sphere by reflecting its relative velocity about the collision normal, for example: *vphere1 = gfx.Vector3.reflect(vrel1, norm1)*.
+- Multiply each sphere's velocity by 0.5. This is necessary because the total amount of kinetic energy needs to be divided equally between the two spheres.
+- Finally, multiply each sphere's velocity by the friction slow down constant. This accounts for some loss of momentum due to friction.
 
 ## Rubric
 
