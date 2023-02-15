@@ -310,6 +310,7 @@ export class PhysicsGame extends gfx.GfxApp
         else if(this.stage == 1)
         {
             this.setHoleRadius(0.5);
+            
 
             // PART 5: CREATE YOUR OWN GAME
             // In this part, you should create your own custom scene!  You should
@@ -318,26 +319,9 @@ export class PhysicsGame extends gfx.GfxApp
             // as long as it meets the minimum requirements in the rubric.  
             // Creativity is encouraged!
 
-            for(let i=0.2; i < 1.5; i+=0.1)
-            {
-                const rb = new RigidBody(this.sphere);
-                rb.setRadius(i);
+            // ADD YOUR CODE HERE
 
-                rb.material = new gfx.GouraudMaterial();
-                rb.material.setColor(new gfx.Color(Math.random(), Math.random(), Math.random()));
 
-                const playAreaSize = gfx.Vector3.subtract(this.playArea.max, this.playArea.min);
-                playAreaSize.x -= 2;
-                playAreaSize.z -= 2;
-
-                rb.position.x = Math.random() * playAreaSize.x - playAreaSize.x/2;
-                rb.position.y = rb.getRadius()/2;
-                rb.position.z = Math.random() * playAreaSize.z - playAreaSize.z/2;
-
-                rb.velocity.set(Math.random() * 50 - 25, Math.random() * 25, Math.random() * 50 - 25);
-
-                this.rigidBodies.add(rb);
-            }
         }
         // The user has finished the game
         else
